@@ -2,8 +2,8 @@
 	"compilerOptions": {
 		"target": "es2016",
 		"lib": ["es6"],
-		"module": "commonjs",
-		"rootDir": "src",
+		"module": "commonJS",
+		"rootDir": "/",
 		"resolveJsonModule": true,
 		"allowJs": true,
 		"outDir": "build",
@@ -11,7 +11,9 @@
 		"forceConsistentCasingInFileNames": true,
 		"strict": true,
 		"noImplicitAny": true,
-		"skipLibCheck": true
+		"skipLibCheck": true,
+		"typeRoots": ["node"],
+		"moduleResolution": "Node"
 	},
-	"include": ["src/**/*"]
+	"include": ["src/**/*", "index.ts"]
 }
