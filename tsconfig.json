@@ -1,19 +1,19 @@
 {
-	"compilerOptions": {
-		"target": "es2016",
-		"lib": ["es6"],
-		"module": "commonJS",
-		"rootDir": "/",
-		"resolveJsonModule": true,
-		"allowJs": true,
-		"outDir": "build",
-		"esModuleInterop": true,
-		"forceConsistentCasingInFileNames": true,
-		"strict": true,
-		"noImplicitAny": true,
-		"skipLibCheck": true,
-		"typeRoots": ["node"],
-		"moduleResolution": "Node"
-	},
-	"include": ["src/**/*", "index.ts"]
+    "compilerOptions": {
+        "target": "es2016",
+        "lib": ["es6"],
+        "module": "commonJS",
+        "rootDir": "/",
+        "resolveJsonModule": true,
+        "allowJs": true,
+        "outDir": "build",
+        "esModuleInterop": true,
+        "forceConsistentCasingInFileNames": true,
+        "strict": true,
+        "noImplicitAny": true,
+        "skipLibCheck": true,
+        "typeRoots": ["node"],
+        "moduleResolution": "Node"
+    },
+    "include": ["src/**/*", "server.ts", "src/database/dynamo_config.ts"]
 }
