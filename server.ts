@@ -16,17 +16,9 @@ app.get('/', (req: express.Request, res: express.Response) => {
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use('/chatgpt', openAI);
-app.use(function (req, res, next) {
-    if (req.secure) {
-        console.log('HTTPS');
-    } else {
-        console.log('HTTP');
-    }
-    next();
-});
+
 const port = process.env.PORT;
 app.listen(port, () => {
-    console.log({ port: 'Holisdsfd' });
     console.log(`Server running on port ${port}`);
 });
 

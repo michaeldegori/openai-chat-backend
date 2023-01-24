@@ -3,11 +3,9 @@ const ssm = new SSM();
 
 export const fetchParameter = async (name: string) => {
     const result = await ssm
-        .getParameter({ Name: name }, (err, data) => {
+        .getParameter({ Name: name }, (err) => {
             if (err) {
                 console.log(err, err.stack);
-            } else {
-                console.log(data);
             }
         })
         .promise();

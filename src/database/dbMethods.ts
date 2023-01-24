@@ -8,6 +8,7 @@ const getUsers = async () => {
         TableName: USERS_TABLE_NAME,
     };
     const users = await dynamoClient.scan(params).promise();
+    console.log({ users });
     return users;
 };
 
