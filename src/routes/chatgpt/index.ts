@@ -1,15 +1,10 @@
 import { Router } from 'express';
-import { Configuration, OpenAIApi } from 'openai';
-
-const configuration = new Configuration({
-    apiKey: process.env.OPENAI_API_KEY,
-});
-const openai = new OpenAIApi(configuration);
+import { openai } from '../../../config/openai_api_config';
 
 const chatGPTRouter = Router();
 
 chatGPTRouter.post('/query', async function (req, res) {
-    if (!configuration.apiKey) {
+    if (!openai) {
         res.status(500).json({
             error: {
                 message: 'OpenAI API key not configured, please follow instructions in README.md',

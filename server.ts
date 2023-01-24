@@ -1,31 +1,37 @@
-import * as dotenv from 'dotenv';
-dotenv.config();
 import express from 'express';
 import { getUsers } from './src/database/dbMethods';
-import chatGPTRouter from './src/routes/chatgpt';
-import { config } from './config/auth0_config';
-import { auth } from 'express-openid-connect';
+import openAI from './src/routes/chatgpt';
+import { initializeOpenai } from './config/openai_api_config';
+import { fetchParameter } from './utils/fetch_aws_parameters';
+
+initializeOpenai();
 
 const app = express();
 
-app.get('/', (_req: express.Request, res: express.Response) => {
+app.get('/', (req: express.Request, res: express.Response) => {
     res.send('Hello World!');
+    console.log(req);
 });
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use('/chatgpt', chatGPTRouter);
-
-// auth router attaches /login, /logout, and /callback routes to the baseURL
-app.use(auth(config));
-// req.isAuthenticated is provided from the auth router
-app.get('/', (req, res) => {
-    res.send(req.oidc.isAuthenticated() ? 'Logged in' : 'Logged out');
+app.use('/chatgpt', openAI);
+app.use(function (req, res, next) {
+    if (req.secure) {
+        console.log('HTTPS');
+    } else {
+        console.log('HTTP');
+    }
+    next();
 });
-
 const port = process.env.PORT;
 app.listen(port, () => {
+    console.log({ port: 'Holisdsfd' });
     console.log(`Server running on port ${port}`);
+});
+
+process.on('SIGINT', function () {
+    process.exit(0);
 });
 
 getUsers();

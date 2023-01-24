@@ -15,5 +15,5 @@
         "typeRoots": ["node"],
         "moduleResolution": "Node"
     },
-    "include": ["src/**/*", "server.ts", "src/database/dynamo_config.ts"]
+    "include": ["src/**/*", "server.ts", "src/database/dynamo_config.ts", "config/openai_api_config.ts"]
 }
