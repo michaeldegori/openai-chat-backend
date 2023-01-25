@@ -5,7 +5,7 @@ export const fetchParameter = async (name: string) => {
     const result = await ssm
         .getParameter({ Name: name }, (err) => {
             if (err) {
-                console.log(err, err.stack);
+                console.log(`Error fetching parameter "${name}": ${err}`);
             }
         })
         .promise();
