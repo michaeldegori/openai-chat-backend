@@ -10,7 +10,6 @@ const app = express();
 
 app.get('/', (req: express.Request, res: express.Response) => {
     res.send('Hello World!');
-    console.log(req);
 });
 
 app.use(express.json());
