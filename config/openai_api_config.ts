@@ -6,7 +6,7 @@ let openai: OpenAIApi | undefined;
 const initializeOpenai = async () => {
     const apiKey = await fetchParameter('OPENAI_API_KEY');
     const configuration = new Configuration({
-        apiKey: process.env.OPENAI_API_KEY,
+        apiKey,
     });
     openai = new OpenAIApi(configuration);
 };
