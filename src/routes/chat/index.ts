@@ -1,9 +1,9 @@
 import { Router } from 'express';
 import { openai } from '../../../config/openai_api_config';
 
-const chatGPTRouter = Router();
+const chatRouter = Router();
 
-chatGPTRouter.post('/query', async function (req, res) {
+chatRouter.post('/query', async function (req, res) {
     if (!openai) {
         res.status(500).json({
             error: {
@@ -37,4 +37,4 @@ chatGPTRouter.post('/query', async function (req, res) {
     }
 });
 
-export default chatGPTRouter;
+export default chatRouter;

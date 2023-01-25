@@ -7,6 +7,7 @@
         "build": "tsc-watch --onSuccess tsc",
         "start": "tsc && pm2 start ecosystem.config.js --env production",
         "start:dev": "pm2 start ecosystem.config.js --env development --attach --watch",
+        "connect:ssh": "ssh -i /Users/michaeldegori/Development/openai-chat/openai-chat-production-key-pair.pem ec2-user@3.88.8.153",
         "test": "test"
     },
     "repository": {
