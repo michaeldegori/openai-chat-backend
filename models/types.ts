@@ -15,3 +15,12 @@ export interface Message {
     timestamp: number;
     sender: userId | 'openai';
 }
+
+export interface Auth0Config {
+    authRequired: boolean;
+    auth0Logout: boolean;
+    baseURL: string;
+    clientID: string;
+    issuerBaseURL: string;
+    secret: string;
+}

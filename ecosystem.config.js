@@ -15,10 +15,12 @@ module.exports = {
             env_production: {
                 NODE_ENV: 'production',
                 PORT: 8080,
+                API_URL: 'http://3.88.8.153:8080/',
             },
             env_development: {
                 NODE_ENV: 'development',
                 PORT: 3070,
+                API_URL: 'http://localhost:3070/',
             },
         },
     ],
