@@ -4,6 +4,7 @@ import { openai } from '../../../config/openai_api_config';
 const chatRouter = Router();
 
 chatRouter.post('/query', async function (req, res) {
+    res.send(JSON.stringify(req.oidc.user));
     if (!openai) {
         res.status(500).json({
             error: {
@@ -36,5 +37,7 @@ chatRouter.post('/query', async function (req, res) {
         }
     }
 });
+
+chatRouter.get('message-history');
 
 export default chatRouter;

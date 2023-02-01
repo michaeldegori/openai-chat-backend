@@ -4,7 +4,7 @@ import chatRouter from './src/routes/chat';
 import authRouter from './src/routes/auth';
 import { initializeOpenai } from './config/openai_api_config';
 import { config, initializeAuth0 } from './config/auth0_config';
-import { auth } from 'express-openid-connect';
+import { auth, requiresAuth } from 'express-openid-connect';
 
 const initializeApp = async () => {
     await initializeOpenai();
@@ -19,7 +19,7 @@ const initializeApp = async () => {
     app.use(express.json());
     app.use(express.urlencoded({ extended: true }));
     app.use(auth(config));
-    app.use('/chat', chatRouter);
+    app.use('/chat', requiresAuth(), chatRouter);
     app.use('/authorize', authRouter);
 
     const port = process.env.PORT;
